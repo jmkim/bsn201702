@@ -1,0 +1,48 @@
+section, footer {
+    margin-top: 30px;
+}
+
+.text-no-wrap {
+    white-space: nowrap;
+}
+
+
+.text-monospace {
+    font-family: monospace;
+}
+
+div.dynomap {
+    background-color: black;
+}
+
+@media (max-width: 575px) {
+    .container {
+        margin-top: 45px;
+        margin-bottom: 45px;
+    }
+
+    footer {
+        font-size: 8pt;
+        line-height: 1.3em;
+    }
+
+    footer > p {
+        margin-bottom: 3px;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    footer {
+        font-size: 10pt;
+        line-height: 1.3em;
+    }
+
+    footer > p {
+        margin-bottom: 8px;
+    }
+}
