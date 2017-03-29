@@ -10,6 +10,9 @@ Number.prototype.formatMoney = function (c, d, t) {
 };
 
 $(document).ready(function () {
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages': ['corechart']});
+
     $('.dynomap').dynomap({
         'background': {
             'image': './img/busanmap/busan_background.png',
@@ -355,46 +358,116 @@ $(document).ready(function () {
 
                 output += '                    <section>\n';
                 output += '                        <h5>보통 학력 이상 학생의 비율</h5>\n';
-                output += '                        <table class="table">\n';
-                output += '                            <tbody>\n';
+                output += '                        <div class="row">';
+                output += '                            <div class="col-xs-12 col-md-4">';
+                output += '                                <div id="chart_div_kor" class="chart"></div\n>';
+                output += '                            </div>';
+                output += '                            <div class="col-xs-12 col-md-4">';
+                output += '                                <div id="chart_div_math" class="chart"></div\n>';
+                output += '                            </div>';
+                output += '                            <div class="col-xs-12 col-md-4">';
+                output += '                                <div id="chart_div_eng" class="chart"></div\n>';
+                output += '                            </div>';
+                output += '                        </div>';
 
-                output += '                                <tr>\n';
-                output += '                                    <th>연도</th>\n';
-                for (var i = yearCount - 1; i >= 0; --i) {
-                    output += '                                    <th>' + year[i] + '</th>\n';
-                }
-                output += '                                </tr>\n';
+                /*
+                 output += '                        <table class="table">\n';
+                 output += '                            <tbody>\n';
 
-                output += '                                <tr>\n';
-                output += '                                    <th>국어</th>\n';
-                for (var i = yearCount - 1; i >= 0; --i) {
-                    output += '                                    <td>' + scoreKorean[i] + ' (' + avgKorean[i] + ')</td>\n';
-                }
-                output += '                                </tr>\n';
+                 output += '                                <tr>\n';
+                 output += '                                    <th>연도</th>\n';
+                 for (var i = yearCount - 1; i >= 0; --i) {
+                 output += '                                    <th>' + year[i] + '</th>\n';
+                 }
+                 output += '                                </tr>\n';
 
-                output += '                                <tr>\n';
-                output += '                                    <th>수학</th>\n';
-                for (var i = yearCount - 1; i >= 0; --i) {
-                    output += '                                    <td>' + scoreMath[i] + ' (' + avgMath[i] + ')</td>\n';
-                }
-                output += '                                </tr>\n';
+                 output += '                                <tr>\n';
+                 output += '                                    <th>국어</th>\n';
+                 for (var i = yearCount - 1; i >= 0; --i) {
+                 output += '                                    <td>' + scoreKorean[i] + ' (' + avgKorean[i] + ')</td>\n';
+                 }
+                 output += '                                </tr>\n';
 
-                output += '                                <tr>\n';
-                output += '                                    <th>영어</th>\n';
-                for (var i = yearCount - 1; i >= 0; --i) {
-                    output += '                                    <td>' + scoreEnglish[i] + ' (' + avgEnglish[i] + ')</td>\n';
-                }
-                output += '                                </tr>\n';
+                 output += '                                <tr>\n';
+                 output += '                                    <th>수학</th>\n';
+                 for (var i = yearCount - 1; i >= 0; --i) {
+                 output += '                                    <td>' + scoreMath[i] + ' (' + avgMath[i] + ')</td>\n';
+                 }
+                 output += '                                </tr>\n';
 
-                output += '                            </tbody>\n';
-                output += '                        </table>\n';
-                output += '                        <div class="text-right">\n';
-                output += '                            <small class="text-muted">단위: %, 괄호 안의 값은 부산광역시에 소재한 ' + schoolCount + '개 학교의 평균</small>\n';
-                output += '                        </div>\n';
+                 output += '                                <tr>\n';
+                 output += '                                    <th>영어</th>\n';
+                 for (var i = yearCount - 1; i >= 0; --i) {
+                 output += '                                    <td>' + scoreEnglish[i] + ' (' + avgEnglish[i] + ')</td>\n';
+                 }
+                 output += '                                </tr>\n';
+
+                 output += '                            </tbody>\n';
+                 output += '                        </table>\n';
+                 output += '                        <div class="text-right">\n';
+                 output += '                            <small class="text-muted">단위: %, 괄호 안의 값은 부산광역시에 소재한 ' + schoolCount + '개 학교의 평균</small>\n';
+                 output += '                        </div>\n';
+                 */
+
                 output += '                    </section>\n';
                 output += '                ';
 
                 $('.gis-school-info').html(output);
+
+                // Create the data table.
+                var data_kor = google.visualization.arrayToDataTable([
+                    ['연도', '평균', {role: 'annotation'}, schoolName, {role: 'annotation'}],
+                    ['2014', avgKorean[0], avgKorean[0], scoreKorean[0], scoreKorean[0]],
+                    ['2015', avgKorean[1], avgKorean[1], scoreKorean[1], scoreKorean[1]],
+                    ['2016', avgKorean[2], avgKorean[2], scoreKorean[2], scoreKorean[2]]
+                ]);
+
+                var data_math = google.visualization.arrayToDataTable([
+                    ['연도', '평균', {role: 'annotation'}, schoolName, {role: 'annotation'}],
+                    ['2014', avgMath[0], avgMath[0], scoreMath[0], scoreMath[0]],
+                    ['2015', avgMath[1], avgMath[1], scoreMath[1], scoreMath[1]],
+                    ['2016', avgMath[2], avgMath[2], scoreMath[2], scoreMath[2]]
+                ]);
+
+                var data_eng = google.visualization.arrayToDataTable([
+                    ['연도', '평균', {role: 'annotation'}, schoolName, {role: 'annotation'}],
+                    ['2014', avgEnglish[0], avgEnglish[0], scoreEnglish[0], scoreEnglish[0]],
+                    ['2015', avgEnglish[1], avgEnglish[1], scoreEnglish[1], scoreEnglish[1]],
+                    ['2016', avgEnglish[2], avgEnglish[2], scoreEnglish[2], scoreEnglish[2]]
+                ]);
+
+                var options_kor = {
+                    title: schoolName + '의 국어 성취도',
+                    hAxis: {},
+                    vAxis: {
+                        title: '보통 학력 이상 학생의 비율 (단위: %)', titleTextStyle: {color: '#333'},
+                        maxValue: 100
+                    }
+                };
+
+                var options_math = {
+                    title: schoolName + '의 수학 성취도',
+                    hAxis: {},
+                    vAxis: {
+                        title: '보통 학력 이상 학생의 비율 (단위: %)', titleTextStyle: {color: '#333'},
+                        maxValue: 100
+                    }
+                };
+
+                var options_eng = {
+                    title: schoolName + '의 영어 성취도',
+                    hAxis: {},
+                    vAxis: {
+                        title: '보통 학력 이상 학생의 비율 (단위: %)', titleTextStyle: {color: '#333'},
+                        maxValue: 100
+                    },
+                    displayAnnotations: true
+                };
+
+                // Instantiate and draw our chart, passing in some options.
+                new google.visualization.LineChart(document.getElementById('chart_div_kor')).draw(data_kor, options_kor);
+                new google.visualization.LineChart(document.getElementById('chart_div_math')).draw(data_math, options_math);
+                new google.visualization.LineChart(document.getElementById('chart_div_eng')).draw(data_eng, options_eng);
             }, 'json');
         })
     }

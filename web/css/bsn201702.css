@@ -6,6 +6,10 @@ section, footer {
     white-space: nowrap;
 }
 
+.chart {
+  width: 100%;
+  min-height: 450px;
+}
 
 .text-monospace {
     font-family: monospace;

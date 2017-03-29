@@ -101,11 +101,11 @@
                 <!-- 구 정보의 시작 -->
                 <div class="gis-gu-info"></div>
                 <!-- 구 정보의 끝 -->
-
-                <!-- 학교 정보의 시작 -->
-                <div class="gis-school-info"></div>
-                <!-- 학교 정보의 끝 -->
             </div>
+
+            <!-- 학교 정보의 시작 -->
+            <div class="col-12 gis-school-info"></div>
+            <!-- 학교 정보의 끝 -->
         </div>
     </section>
     <!-- Body의 끝 -->
@@ -127,6 +127,7 @@
 <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./js/dynomap.js"></script>
 <script type="text/javascript" src="js/bsn201702.js"></script>
+<script type="text/javascript" src="./js/google-charts.js"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
