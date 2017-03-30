@@ -438,6 +438,7 @@ $(document).ready(function () {
 
                 var options_kor = {
                     title: schoolName + '의 국어 성취도',
+                    legend: {position: 'bottom'},
                     hAxis: {},
                     vAxis: {
                         title: '보통 학력 이상 학생의 비율 (단위: %)', titleTextStyle: {color: '#333'},
@@ -447,6 +448,7 @@ $(document).ready(function () {
 
                 var options_math = {
                     title: schoolName + '의 수학 성취도',
+                    legend: {position: 'bottom'},
                     hAxis: {},
                     vAxis: {
                         title: '보통 학력 이상 학생의 비율 (단위: %)', titleTextStyle: {color: '#333'},
@@ -456,6 +458,7 @@ $(document).ready(function () {
 
                 var options_eng = {
                     title: schoolName + '의 영어 성취도',
+                    legend: {position: 'bottom'},
                     hAxis: {},
                     vAxis: {
                         title: '보통 학력 이상 학생의 비율 (단위: %)', titleTextStyle: {color: '#333'},
