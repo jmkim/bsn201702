@@ -15,10 +15,6 @@ section, footer {
     font-family: monospace;
 }
 
-div.dynomap {
-    background-color: black;
-}
-
 @media (max-width: 575px) {
     .container {
         margin-top: 45px;
