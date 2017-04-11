@@ -104,7 +104,7 @@
             </div>
 
             <!-- 학교 정보의 시작 -->
-            <div class="col-12 gis-school-info"></div>
+            <div id="school-info" class="col-12 gis-school-info"></div>
             <!-- 학교 정보의 끝 -->
         </div>
     </section>

@@ -284,7 +284,7 @@ $(document).ready(function () {
                     output += '                        <h5>소재 중학교</h5>\n';
                     for (var i = 0; i < schoolListObject.result.middleSchool.length; ++i) {
                         output += (i > 0) ? ', ' : '                        ';
-                        output += '<a class="gis-btn-school-info text-no-wrap text-primary">';
+                        output += '<a href="#school-info" class="gis-btn-school-info text-no-wrap text-primary">';
                         output += schoolListObject.result.middleSchool[i];
                         output += '</a>';
                     }
@@ -294,7 +294,7 @@ $(document).ready(function () {
                     output += '                        <h5>소재 고등학교</h5>\n';
                     for (var i = 0; i < schoolListObject.result.highSchool.length; ++i) {
                         output += (i > 0) ? ', ' : '                        ';
-                        output += '<a class="gis-btn-school-info text-no-wrap text-primary">';
+                        output += '<a href="#school-info" class="gis-btn-school-info text-no-wrap text-primary">';
                         output += schoolListObject.result.highSchool[i];
                         output += '</a>';
                     }
